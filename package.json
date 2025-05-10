@@ -1,0 +1,24 @@
+{
+  "name": "nmt-history-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ann0123-cyber/nmt-history-site.git"
+  },
+  "keywords": [],
+  "author": "Anna Musiivska",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Ann0123-cyber/nmt-history-site/issues"
+  },
+  "homepage": "https://github.com/Ann0123-cyber/nmt-history-site#readme",
+  "devDependencies": {
+    "license": "^1.0.3"
+  }
+}
