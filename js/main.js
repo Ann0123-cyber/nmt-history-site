@@ -1,5 +1,5 @@
 import { setupHeader } from './header.js'; 
-import { startCyclicDateDisplay } from './t1-generators.js';
+import { startCyclicDateDisplay } from './lib/index.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     setupHeader();

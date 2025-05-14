@@ -1,5 +1,3 @@
-
-// 1. Генератор історичних дат (безкінечний)
 export function* historyDateGenerator() {
     const dates = [
         { date: "882 рік", event: "Заснування Київської Русі князем Олегом" },
@@ -31,9 +29,7 @@ export function startCyclicDateDisplay() {
         const next = generatorInstance.next().value;
         const element = document.getElementById('randomDate');
         if (element) {
-            element.innerHTML = `
-                <strong>${next.date}</strong>: ${next.event}
-            `;
+            element.innerHTML = `<strong>${next.date}</strong>: ${next.event}`;
         }
     };
 
@@ -46,8 +42,3 @@ export function stopCyclicDateDisplay() {
         clearInterval(intervalId);
     }
 }
-
-
-
-
-

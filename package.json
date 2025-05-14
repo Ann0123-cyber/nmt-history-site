@@ -1,9 +1,10 @@
 {
   "name": "nmt-history-site",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Site for prerparing for gistory exam",
+  "main": "./src/lib/index.js",
   "scripts": {
+    "start": "node src/main.js" ,
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
