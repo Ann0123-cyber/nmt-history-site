@@ -264,3 +264,41 @@ cite {
 .test-card-button:hover {
     background-color: #004494;
 }
+
+#dates-average-section {
+    background-color: #f8f9fa;
+    padding: 20px 30px;
+    margin: 30px auto;
+    border-radius: 12px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+#dates-average-section h2 {
+    color: #0057b7;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+#dates-average-result {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+#clear-dates-result {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #7b7878;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#clear-dates-result:hover {
+    background-color: #c9302c;
+}
