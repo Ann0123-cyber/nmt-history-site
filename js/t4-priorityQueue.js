@@ -1,49 +1,53 @@
 export class BiDirectionalPriorityQueue {
     constructor() {
-        this.queue = [];
+        this.queuePriority = [];
+        this.queueTime = [];
     }
 
-    enqueue(item, priority) {
-        this.queue.push({ item, priority, time: Date.now() });
-        this.queue.sort((a, b) => b.priority - a.priority);
+    enqueue(item) {
+        const entry = { ...item, time: Date.now() };
+
+        this.queuePriority.push(entry);
+        this.queuePriority.sort((a, b) => b.priority - a.priority);
+
+        this.queueTime.push(entry);
+        this.queueTime.sort((a, b) => a.time - b.time);
     }
 
     peek(mode = 'highest') {
-        if (this.queue.length === 0) return null;
+        if (this.isEmpty()) return null;
+
         switch (mode) {
             case 'highest':
-                return this.queue[0].item;
-            case 'lowest':
-                return this.queue[this.queue.length - 1].item;
+                return this.queuePriority[0];
             case 'oldest':
-                return this.queue.reduce((a, b) => a.time < b.time ? a : b).item;
-            case 'newest':
-                return this.queue.reduce((a, b) => a.time > b.time ? a : b).item;
+                return this.queueTime[0];
             default:
                 return null;
         }
     }
 
     dequeue(mode = 'highest') {
-        if (this.queue.length === 0) return null;
-        let index;
+        if (this.isEmpty()) return null;
+
+        let entry;
+
         switch (mode) {
             case 'highest':
-                return this.queue.shift().item;
-            case 'lowest':
-                return this.queue.pop().item;
+                entry = this.queuePriority.shift();
+                break;
             case 'oldest':
-                index = this.queue.findIndex(q => q.time === Math.min(...this.queue.map(x => x.time)));
-                return this.queue.splice(index, 1)[0].item;
-            case 'newest':
-                index = this.queue.findIndex(q => q.time === Math.max(...this.queue.map(x => x.time)));
-                return this.queue.splice(index, 1)[0].item;
+                entry = this.queueTime.shift();
+                break;
             default:
                 return null;
         }
+
+        return entry;
+
     }
 
     isEmpty() {
-        return this.queue.length === 0;
+        return this.queuePriority.length === 0 && this.queueTime.length === 0;
     }
 }

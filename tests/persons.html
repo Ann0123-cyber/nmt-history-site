@@ -9,12 +9,23 @@
 <body>
   <div class="container">
     <h1>Тест на знання персоналій</h1>
-    <div id="question-container">
-      <div id="question-text"></div>
-      <img id="question-image" src="" alt="Портрет" class="portrait" />
-      <ul id="answer-options"></ul>
+
+    <div id="mode-selection" class="mode-selection">
+      <p>Оберіть режим тесту:</p>
+      <label><input type="radio" name="mode" value="highest" /> За пріоритетом</label><br />
+      <label><input type="radio" name="mode" value="oldest" /> За хронологією</label><br />
+      <button id="start-button">Почати тест</button>
+    </div>
+
+    <div id="test-container" class="hidden">
+      <div id="question-container">
+        <div id="question-text"></div>
+        <img id="question-image" src="" alt="Портрет" class="portrait" />
+        <ul id="answer-options"></ul>
     </div>
     <button id="next-button" class="hidden">Наступне питання</button>
+    </div>
+
     <div id="test-end" class="hidden">
       <p id="result-text"></p>
       <a href="../tests.html" class="back-link">Повернутись на головну</a>

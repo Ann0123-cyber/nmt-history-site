@@ -3,66 +3,10 @@ import { BiDirectionalPriorityQueue } from '../js/t4-priorityQueue.js';
 const personQuestions = [
     {
         question: "Хто зображений на портреті?",
-        image: "../img/persons/mazepa.jpg",
-        options: ["Б. Хмельницький", "І. Мазепа", "Д. Апостол", "П. Дорошенко"],
-        correct: 1,
-        priority: 1
-    },
-    {
-        question: "Хто зображений на портреті?",
-        image: "../img/persons/shevchenko.jfif",
-        options: ["І. Франко", "П. Куліш", "Т. Шевченко", "М. Костомаров"],
-        correct: 2,
-        priority: 2
-    },
-    {
-        question: "Хто зображений на портреті?",
-        image: "../img/persons/antonovich.jfif",
-        options: ["Т. Шевченко", "В. Антонович", "М. Грушевський", "М. Драгоманов"],
-        correct: 1,
-        priority: 3
-    },
-    {
-        question: "Хто зображений на портреті?",
-        image: "../img/persons/bohdan.jfif",
-        options: ["І. Мазепа", "П. Куліш", "Т. Шевченко", "Б. Хмельницький"],
-        correct: 3,
-        priority: 4
-    },
-    {
-        question: "Хто зображений на портреті?",
-        image: "../img/persons/doroshenko.jfif",
-        options: ["П. Дорошенко", "П. Куліш", "Т. Шевченко", "Б. Хмельницький"],
-        correct: 0,
-        priority: 5
-    },
-    {
-        question: "Хто зображений на портреті?",
-        image: "../img/persons/kumish.jfif",
-        options: ["П. Дорошенко", "П. Куліш", "Т. Шевченко", "Б. Хмельницький"],
-        correct: 1,
-        priority: 6
-    },
-    {
-        question: "Хто зображений на портреті?",
-        image: "../img/persons/drahomanov.jfif",
-        options: ["П. Дорошенко", "М. Драгоманов", "Т. Шевченко", "Б. Хмельницький"],
-        correct: 1,
-        priority: 7
-    },
-    {
-        question: "Хто зображений на портреті?",
         image: "../img/persons/konashevich.jpg",
         options: ["П. Конашевич-Сагадачний", "П. Куліш", "Т. Шевченко", "Б. Хмельницький"],
         correct: 0,
         priority: 8
-    },
-    {
-        question: "Хто зображений на портреті?",
-        image: "../img/persons/kotlarevskiy.jfif",
-        options: ["І. Котляревський", "П. Куліш", "Т. Шевченко", "Б. Хмельницький"],
-        correct: 0,
-        priority: 9
     },
     {
         question: "Хто зображений на портреті?",
@@ -73,10 +17,52 @@ const personQuestions = [
     },
     {
         question: "Хто зображений на портреті?",
-        image: "../img/persons/rozumovsli.jfif",
-        options: ["П. Дорошенко", "К. Розумовський", "Т. Шевченко", "Б. Хмельницький"],
+        image: "../img/persons/bohdan.jfif",
+        options: ["І. Мазепа", "П. Куліш", "Т. Шевченко", "Б. Хмельницький"],
+        correct: 3,
+        priority: 1
+    },
+    {
+        question: "Хто зображений на портреті?",
+        image: "../img/persons/doroshenko.jfif",
+        options: ["П. Дорошенко", "П. Куліш", "Т. Шевченко", "Б. Хмельницький"],
+        correct: 0,
+        priority: 5
+    },
+    {
+        question: "Хто зображений на портреті?",
+        image: "../img/persons/mazepa.jpg",
+        options: ["Б. Хмельницький", "І. Мазепа", "Д. Апостол", "П. Дорошенко"],
         correct: 1,
-        priority: 11
+        priority: 2
+    },
+    {
+        question: "Хто зображений на портреті?",
+        image: "../img/persons/skovoroda.jfif",
+        options: ["П. Дорошенко", "П. Куліш", "Г. Сковорода", "Б. Хмельницький"],
+        correct: 2,
+        priority: 4
+    },
+    {
+        question: "Хто зображений на портреті?",
+        image: "../img/persons/kotlarevskiy.jfif",
+        options: ["І. Котляревський", "П. Куліш", "Т. Шевченко", "Б. Хмельницький"],
+        correct: 0,
+        priority: 9
+    },
+    {
+        question: "Хто зображений на портреті?",
+        image: "../img/persons/shevchenko.jfif",
+        options: ["І. Франко", "П. Куліш", "Т. Шевченко", "М. Костомаров"],
+        correct: 2,
+        priority: 2
+    },
+    {
+        question: "Хто зображений на портреті?",
+        image: "../img/persons/kulish.jfif",
+        options: ["П. Дорошенко", "П. Куліш", "Т. Шевченко", "Б. Хмельницький"],
+        correct: 1,
+        priority: 6
     },
     {
         question: "Хто зображений на портреті?",
@@ -87,17 +73,49 @@ const personQuestions = [
     },
     {
         question: "Хто зображений на портреті?",
-        image: "../img/persons/skovoroda.jfif",
-        options: ["П. Дорошенко", "П. Куліш", "Г. Сковорода", "Б. Хмельницький"],
-        correct: 2,
-        priority: 10
+        image: "../img/persons/rozumovsli.jfif",
+        options: ["П. Дорошенко", "К. Розумовський", "Т. Шевченко", "Б. Хмельницький"],
+        correct: 1,
+        priority: 11
     },
+    {
+        question: "Хто зображений на портреті?",
+        image: "../img/persons/antonovich.jfif",
+        options: ["Т. Шевченко", "В. Антонович", "М. Грушевський", "М. Драгоманов"],
+        correct: 1,
+        priority: 7
+    },
+    {
+        question: "Хто зображений на портреті?",
+        image: "../img/persons/drahomanov.jfif",
+        options: ["П. Дорошенко", "М. Драгоманов", "Т. Шевченко", "Б. Хмельницький"],
+        correct: 1,
+        priority: 7
+    }
 ];
 
 const questionQueue = new BiDirectionalPriorityQueue();
-personQuestions.forEach(q => questionQueue.enqueue(q, q.priority));
+personQuestions.forEach(q => questionQueue.enqueue(q));
 
-let currentQuestion = questionQueue.dequeue('highest');
+let selectedMode = null;
+
+const modeSelection = document.getElementById("mode-selection");
+const startButton = document.getElementById("start-button");
+const testContainer = document.getElementById("test-container");
+
+startButton.addEventListener("click", () => {
+    const selectedRadio = document.querySelector('input[name="mode"]:checked');
+    if (!selectedRadio) {
+        alert("Оберіть режим тесту");
+        return;
+    }
+    selectedMode = selectedRadio.value;
+    modeSelection.style.display = "none";
+    testContainer.style.display = "block";
+    showQuestion(questionQueue.dequeue(selectedMode));
+});
+
+
 let correctAnswers = 0;
 
 const questionText = document.getElementById("question-text");
@@ -138,8 +156,8 @@ function selectAnswer(selectedIndex, correctIndex, element) {
 }
 
 nextButton.addEventListener("click", () => {
-    currentQuestion = questionQueue.dequeue('highest');
-    showQuestion(currentQuestion);
+    const next = questionQueue.dequeue(selectedMode);
+    showQuestion(next);
 });
 
 function finishTest() {
@@ -151,5 +169,3 @@ function finishTest() {
 
     resultText.textContent = `Правильних відповідей: ${correctAnswers}`;
 }
-
-showQuestion(currentQuestion);

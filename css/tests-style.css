@@ -4,7 +4,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .container {
   max-width: 600px;
   margin: 50px auto;
@@ -13,22 +12,44 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
 h1 {
   text-align: center;
   color: #333;
 }
-
+.mode-selection p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.mode-selection label {
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+.mode-selection input[type="radio"] {
+  margin-right: 8px;
+}
+.mode-selection button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  background-color: #4d94ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.mode-selection button:hover {
+  background-color: #3366cc;
+}
 #question-text {
   font-size: 20px;
   margin-bottom: 20px;
 }
-
 #answer-options {
   list-style-type: none;
   padding: 0;
 }
-
 #answer-options li {
   background: #e6f0ff;
   margin-bottom: 10px;
@@ -37,16 +58,13 @@ h1 {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 #answer-options li:hover {
   background: #cce0ff;
 }
-
 #answer-options li.selected {
   background: #99c2ff;
   font-weight: bold;
 }
-
 button {
   display: inline-block;
   margin-top: 20px;
@@ -59,15 +77,12 @@ button {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 button:hover {
   background-color: #3366cc;
 }
-
 .hidden {
   display: none;
 }
-
 .back-link {
   display: inline-block;
   margin-top: 20px;
@@ -75,7 +90,6 @@ button:hover {
   color: #4d94ff;
   font-weight: bold;
 }
-
 #question-image.portrait {
   display: block;
   margin: 20px auto;
