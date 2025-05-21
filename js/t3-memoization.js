@@ -1,32 +1,32 @@
-export class Cache {
-  constructor(key) {
-    this.key = key;
-    this.counterKey = `${key}-counter`;
+export class DatesCache {
+  constructor() {
+    this.indexKey = 'datesTest-index';
   }
 
-  get(field) {
-    let data = JSON.parse(localStorage.getItem(this.key)) || {};
-    return data[field];
+  getAll() {
+    const keys = JSON.parse(localStorage.getItem(this.indexKey)) || [];
+    return keys.map(key => JSON.parse(localStorage.getItem(key))).filter(Boolean);
   }
 
-  set(field, value) {
-    const data = JSON.parse(localStorage.getItem(this.key)) || {};
-    data[field] = value;
+  addResult(result) {
+    const timestamp = Date.now();
+    const resultKey = `datesTest-${timestamp}`;
 
-    let saveCount = parseInt(localStorage.getItem(this.counterKey)) || 0;
-    saveCount += 1;
+    let keys = JSON.parse(localStorage.getItem(this.indexKey)) || [];
 
-    if (saveCount >= 10) {
-      this.clear();
-      saveCount = 0;
-    } else {
-    localStorage.setItem(this.key, JSON.stringify(data));
+    if (keys.length >= 10) {
+      const oldestKey = keys.shift(); 
+      localStorage.removeItem(oldestKey);
     }
-    localStorage.setItem(this.counterKey, saveCount.toString());
+
+    keys.push(resultKey);
+    localStorage.setItem(resultKey, JSON.stringify(result));
+    localStorage.setItem(this.indexKey, JSON.stringify(keys));
   }
 
   clear() {
-    localStorage.removeItem(this.key);
-    localStorage.removeItem(this.counterKey);
+    const keys = JSON.parse(localStorage.getItem(this.indexKey)) || [];
+    keys.forEach(key => localStorage.removeItem(key));
+    localStorage.removeItem(this.indexKey);
   }
 }

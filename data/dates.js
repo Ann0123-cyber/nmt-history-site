@@ -1,8 +1,8 @@
-import { Cache } from '../js/t3-memoization.js';
+import { DatesCache } from '../js/t3-memoization.js';
 
     //dates.html
     
-    const testCache = new Cache('datesTest');
+    const testCache = new DatesCache();
 
     const dateQuestions = [
     {
@@ -117,7 +117,6 @@ import { Cache } from '../js/t3-memoization.js';
     }
 
     options.forEach(opt => opt.style.pointerEvents = "none");
-
     nextButton.classList.remove("hidden");
     }
 
@@ -131,21 +130,21 @@ import { Cache } from '../js/t3-memoization.js';
     });
 
     function finishTest() {
-    const total = dateQuestions.length;
-    const score = correctAnswers;
-    const average = testCache.get('average') || { totalAttempts: 0, totalCorrect: 0 };
+        const total = dateQuestions.length;
+        const score = correctAnswers;
 
-    average.totalAttempts += 1;
-    average.totalCorrect += score;
+        testCache.addResult({
+            date: new Date().toISOString(),
+            score: score,
+            total: total
+        });
 
-    testCache.set('average', average);
+        questionText.style.display = "none";
+        answerOptions.style.display = "none";
+        nextButton.style.display = "none";
+        testEnd.classList.remove("hidden");
 
-    questionText.style.display = "none";
-    answerOptions.style.display = "none";
-    nextButton.style.display = "none";
-    testEnd.classList.remove("hidden");
-
-    resultText.textContent = `Результат: ${score} правильних з ${total}`;
+        resultText.textContent = `Результат: ${score} правильних з ${total}`;
     }
 
     showQuestion(currentIndex);
@@ -153,24 +152,24 @@ import { Cache } from '../js/t3-memoization.js';
 
 // tests.html
 
-    const averageResultText = document.getElementById("dates-average-result");
-    const clearButton = document.getElementById("clear-dates-result");
+const averageResultText = document.getElementById("dates-average-result");
+const clearButton = document.getElementById("clear-dates-result");
 
-    if (averageResultText && clearButton) {
-    const cache = new Cache('datesTest');
-    const stats = cache.get('average');
+if (averageResultText && clearButton) {
+  const cache = new DatesCache();
+  const results = cache.getAll();
 
-    if (stats && stats.totalAttempts > 0) {
-        const avg = (stats.totalCorrect / stats.totalAttempts).toFixed(2);
-        averageResultText.textContent = `Пройдено разів: ${stats.totalAttempts}, середній результат: ${avg} правильних відповідей.`;
-    } else {
-        averageResultText.textContent = "Немає збережених результатів.";
-    }
+  if (results.length > 0) {
+    const totalAttempts = results.length;
+    const totalCorrect = results.reduce((sum, r) => sum + r.score, 0);
+    const avg = (totalCorrect / totalAttempts).toFixed(2);
+    averageResultText.textContent = `Пройдено разів: ${totalAttempts}, середній результат: ${avg} правильних відповідей.`;
+  } else {
+    averageResultText.textContent = "Немає збережених результатів.";
+  }
 
-    clearButton.addEventListener("click", () => {
-        cache.clear();
-        averageResultText.textContent = "Результати очищено.";
-    });
-    }
-
-
+  clearButton.addEventListener("click", () => {
+    cache.clear();
+    averageResultText.textContent = "Результати очищено.";
+  });
+}
