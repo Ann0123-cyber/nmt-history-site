@@ -1,6 +1,6 @@
 import {
   fetchMonuments,
-  filterByStyle,
+  filterByStyleCallback,
   sortByName,
   searchMonument
 } from './t5-asyncArrayFunctions.js';
@@ -104,9 +104,10 @@ btnSort.addEventListener('click', async () => {
   renderMonuments(sorted);
 });
 
-btnFilter.addEventListener('click', async () => {
-  const filtered = await filterByStyle(currentMonuments, 'Українське бароко');
-  renderMonuments(filtered);
+btnFilter.addEventListener('click', () => {
+  filterByStyleCallback(currentMonuments, 'Українське бароко', (filtered) => {
+     renderMonuments(filtered);
+  });
 });
 
 let debounceTimer = null;

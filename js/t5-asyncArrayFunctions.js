@@ -9,9 +9,11 @@ export async function fetchMonuments() {
   return monumentsData.map(m => ({ ...m }));
 }
 
-export async function filterByStyle(monuments, style) {
-  await delay(300); 
-  return monuments.filter(m => m.style === style);
+export function filterByStyleCallback(monuments, style, callback) {
+  setTimeout(() => {
+    const result = monuments.filter(m => m.style === style);
+    callback(result);
+  }, 300);
 }
 
 export async function sortByName(monuments) {
