@@ -68,8 +68,8 @@ const monumentContainer = document.getElementById('monument-list');
 const btnLoad = document.getElementById('btn-load');
 const btnSort = document.getElementById('btn-sort');
 const btnFilter = document.getElementById('btn-filter');
-const btnSearch = document.getElementById('btn-search');
 const searchInput = document.getElementById('search-input');
+const loader = document.getElementById('loader');
 
 let currentMonuments = [];
 let controller = null;
@@ -110,7 +110,7 @@ btnFilter.addEventListener('click', () => {
   });
 });
 
-let debounceTimer = null;
+debounceTimer = null;
 
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.trim().toLowerCase();
@@ -121,6 +121,14 @@ searchInput.addEventListener('input', () => {
   }
 
   debounceTimer = setTimeout(async () => {
+    if (query.length === 0) {
+      loader.style.display = 'none';  
+      renderMonuments(currentMonuments);
+      return;
+    }
+
+    loader.style.display = 'inline-block';  
+
     controller = new AbortController();
     const signal = controller.signal;
 
@@ -136,7 +144,8 @@ searchInput.addEventListener('input', () => {
       } else {
         console.error('Помилка:', error);
       }
+    } finally {
+      loader.style.display = 'none'; 
     }
-  }, 400);
+  }, 1000);
 });
-

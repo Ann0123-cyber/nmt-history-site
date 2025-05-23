@@ -8,21 +8,19 @@
 <body>
   <div class="container">
     <h1>Архітектурні пам'ятки України</h1>
-
     <div class="controls">
       <input type="text" id="search-input" placeholder="Пошук за назвою...">
       <button id="btn-load">Завантажити</button>
       <button id="btn-sort">Сортувати за назвою</button>
       <button id="btn-filter">Фільтрувати (Українське бароко)</button>
-      <button id="btn-search">Пошук</button>
+      <div id="loader" style="display:none; margin-left:10px;">
+        <div class="spinner"></div>
+      </div>
     </div>
-
     <div id="monument-list" class="monument-list">
     <img id="question-image" src="" alt="Портрет" class="portrait" />
-      <!-- Тут з’являються картки -->
     </div>
   </div>
-
   <script type="module" src="../js/materials.js"></script>
 </body>
 </html>
