@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import { DatesCache } from '../js/t3-memoization.js';
 
     //dates.html
     
     const testCache = new DatesCache();
+=======
+import { Cache } from '../js/t3-memoization.js';
+
+    //dates.html
+    
+    const testCache = new Cache('datesTest');
+>>>>>>> d96499fecb1b7bd067f8820ff5da4e20ecd43682
 
     const dateQuestions = [
     {
@@ -117,6 +125,10 @@ import { DatesCache } from '../js/t3-memoization.js';
     }
 
     options.forEach(opt => opt.style.pointerEvents = "none");
+<<<<<<< HEAD
+=======
+
+>>>>>>> d96499fecb1b7bd067f8820ff5da4e20ecd43682
     nextButton.classList.remove("hidden");
     }
 
@@ -130,6 +142,7 @@ import { DatesCache } from '../js/t3-memoization.js';
     });
 
     function finishTest() {
+<<<<<<< HEAD
         const total = dateQuestions.length;
         const score = correctAnswers;
 
@@ -145,6 +158,23 @@ import { DatesCache } from '../js/t3-memoization.js';
         testEnd.classList.remove("hidden");
 
         resultText.textContent = `Результат: ${score} правильних з ${total}`;
+=======
+    const total = dateQuestions.length;
+    const score = correctAnswers;
+    const average = testCache.get('average') || { totalAttempts: 0, totalCorrect: 0 };
+
+    average.totalAttempts += 1;
+    average.totalCorrect += score;
+
+    testCache.set('average', average);
+
+    questionText.style.display = "none";
+    answerOptions.style.display = "none";
+    nextButton.style.display = "none";
+    testEnd.classList.remove("hidden");
+
+    resultText.textContent = `Результат: ${score} правильних з ${total}`;
+>>>>>>> d96499fecb1b7bd067f8820ff5da4e20ecd43682
     }
 
     showQuestion(currentIndex);
@@ -152,6 +182,7 @@ import { DatesCache } from '../js/t3-memoization.js';
 
 // tests.html
 
+<<<<<<< HEAD
 const averageResultText = document.getElementById("dates-average-result");
 const clearButton = document.getElementById("clear-dates-result");
 
@@ -173,3 +204,26 @@ if (averageResultText && clearButton) {
     averageResultText.textContent = "Результати очищено.";
   });
 }
+=======
+    const averageResultText = document.getElementById("dates-average-result");
+    const clearButton = document.getElementById("clear-dates-result");
+
+    if (averageResultText && clearButton) {
+    const cache = new Cache('datesTest');
+    const stats = cache.get('average');
+
+    if (stats && stats.totalAttempts > 0) {
+        const avg = (stats.totalCorrect / stats.totalAttempts).toFixed(2);
+        averageResultText.textContent = `Пройдено разів: ${stats.totalAttempts}, середній результат: ${avg} правильних відповідей.`;
+    } else {
+        averageResultText.textContent = "Немає збережених результатів.";
+    }
+
+    clearButton.addEventListener("click", () => {
+        cache.clear();
+        averageResultText.textContent = "Результати очищено.";
+    });
+    }
+
+
+>>>>>>> d96499fecb1b7bd067f8820ff5da4e20ecd43682
