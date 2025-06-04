@@ -110,7 +110,7 @@ btnFilter.addEventListener('click', () => {
   });
 });
 
-debounceTimer = null;
+let debounceTimer = null;
 
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.trim().toLowerCase();
