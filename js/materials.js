@@ -10,56 +10,56 @@ export const monumentsData = [
     id: 1,
     name: "Софійський собор",
     location: "Київ",
-    image: "../../img/monuments/sofSobor.jpg",
+    image: "img/monuments/sofSobor.jpg",
     style: "Українське бароко"
   },
   {
     id: 2,
     name: "Спасо-Преображенський собор",
     location: "Чернігів",
-    image: "../../img/monuments/spaso.jpg",
+    image: "img/monuments/spaso.jpg",
     style: "Візантійський стиль"
   },
   {
     id: 3,
     name: "Успенський собор Києво-Печерської лаври",
     location: "Київ",
-    image: "../../img/monuments/uspenskiy.jpg",
+    image: "img/monuments/uspenskiy.jpg",
     style: "Українське бароко"
   },
   {
     id: 4,
     name: "Михайлівський Золотоверхий собор",
     location: "Київ",
-    image: "../../img/monuments/mikhalivskiy.jpg",
+    image: "img/monuments/mikhalivskiy.jpg",
     style: "Українське бароко"
   },
   {
     id: 5,
     name: "П’ятницька церква",
     location: "Чернігів",
-    image: "../../img/monuments/piatnitska.jpg",
+    image: "img/monuments/piatnitska.jpg",
     style: "Українське бароко"
   },
   {
     id: 6,
     name: "Вірменський собор",
     location: "Львів",
-    image: "../../img/monuments/virmenskiy.jpg",
+    image: "img/monuments/virmenskiy.jpg",
     style: "Вірменська архітектура "
   },
   {
     id: 7,
     name: "Хотинська фортеця",
     location: "Хотин",
-    image: "../../img/monuments/hotinskiy.jpg",
+    image: "img/monuments/hotinskiy.jpg",
     style: "Неокласичний"
   },
   {
     id: 8,
     name: "Будинок Корнякта",
     location: "Львів",
-    image: "../../img/monuments/korniatka.jpg",
+    image: "img/monuments/korniatka.jpg",
     style: "Ренесанс"
   }
 ];
