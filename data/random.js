@@ -2,7 +2,7 @@ import { questionStreamNDJSON  } from '../js/t6-dataStreaming.js';
 
 const container = document.getElementById('test');
 const button = document.getElementById('loadMore');
-const stream = questionStreamNDJSON ('../questions.ndjson', 5);
+const stream = questionStreamNDJSON ('../public/questions.ndjson', 5);
 
 button.addEventListener('click', async () => {
   const { value: questions, done } = await stream.next();
